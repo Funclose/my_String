@@ -3,29 +3,31 @@
 
 int main() {
     setlocale(LC_ALL, "ru");
-    //// Создание объекта с использованием конструктора по умолчанию
-    //MyString str1;
+    
+    MyString str1("Hello, world!");
 
-    //// Создание объекта с использованием конструктора с параметрами
-    //MyString str2(100); // Создать строку длиной 100 символов
+    
+    std::cout << "Рядок: ";
+    str1.display();
 
-    // вызов дефолтного конструктора
-    MyString str3("Hello, World!");
+    
+    std::cout << "Довжина рядка: " << str1.MyStrlen() << std::endl;
 
-    // ввод для пользователя
-    std::cout << "Enter a string: ";
-    MyString str4;
-    str4.input();
+    
+    std::cout << "Символ 'o' в рядку: " << str1.MyChar('o') << std::endl;
 
+    
+    std::cout << "Підрядок 'world' у рядку: " << (str1.MyStrStr("world") ? "знайдено" : "не знайдено") << std::endl;
 
-    std::cout << "str3: ";
-    str3.display();
+    // Копіювання рядка
+    MyString str2;
+    str2.Mystrcpy(str1.getName()); 
 
-    std::cout << "str4: ";
-    str4.display();
+    
 
-    // Вывод количества созданных объектов
-    std::cout << "Number of MyString objects created: " << MyString::getObjectCount() << std::endl;
+    
+    std::cout << "Результат об'єднання рядків: ";
+    str1.display();
 
     return 0;
 }
